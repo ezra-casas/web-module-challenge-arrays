@@ -213,16 +213,10 @@ function getAverageWordLength(array){
 
   for(let i = 0; i < wordLength.length; i++){
       // }
-      console.log(wordLength[i].length)
       count += wordLength[i].length;
 
   }
-
-  console.log(count / wordLength.length)
-
-  console.log(wordLength)
 }
-
 getAverageWordLength(originalFlavors);
 
 
@@ -240,8 +234,34 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(){
+function getRandomFlavors(newFlavors, seasonalFlavors, regionalFlavors, originalFlavors){
+
+  let randomFlavors = [];
+
+  newFlavors = newFlavors;
+  seasonalFlavors = seasonalFlavors;
+  regionalFlavors = regionalFlavors;
+  originalFlavors = originalFlavors;
+
+
+  for(let i = 31; i > 0; i--){
+      let randomChoice = Math.floor(Math.random() * 4);
+      if(randomChoice === 0){
+          let flavor = newFlavors[Math.floor(Math.random() * newFlavors.length)];
+          randomFlavors.push(flavor);
+      }else if(randomChoice === 1){
+          let flavor = seasonalFlavors[Math.floor(Math.random() * seasonalFlavors.length)]
+          randomFlavors.push(flavor)
+      }else if(randomChoice === 2){
+          let flavor = regionalFlavors[Math.floor(Math.random() * regionalFlavors.length)]
+          randomFlavors.push(flavor)
+      }else if(randomChoice === 3){
+          let flavor = originalFlavors[Math.floor(Math.random() * originalFlavors.length)]
+          randomFlavors.push(flavor)
+      }
+  }
   
+  console.log(randomFlavors.length)
 }
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
